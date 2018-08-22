@@ -3,54 +3,39 @@
 import subprocess
 import sys
 import os
+import argparse
 
 #Has to be done by Tuesdaaay
 #Options like where to save the torrent
 #Pass the torrent link
 #wiLL run tranmssion on whatever host it is active on so will use this tool for lyr most likely
 
-
-#Going to make this a CLT instead, so it will work with cron jobs better
-#Also going to make a repo for this
+#will this fucking update ???
 
 
 
-def getLink():
-	#magnetLink = input('Enter the mangent link. \n')
-	#os.system('sudo service transmission-daemon status')
-	
+parser = argparse.ArgumentParser()
 
 
+#By typing python3 NAME -add instead of python3 NAME -a the former will not need arguments.
 
-	print ('Enter 1; to stop the torrents.')
-	print('Enter 2; start a new torrent')
-	print ('Enter 3; to exit.')
+parser.add_argument("-p", "--pause", default=0, help='Pauses all torrents')
+parser.add_argument("-a", "--add", help="Adds and starts the torrent")
+parser.add_argument("-r", "--remove", help="Remove all torrents")
 
-	choice = int(input('Enter your choice\n'))
 
-	if (choice == 1):
+args = parser.parse_args()
+
+def transmission():
+	if args.pause:
 		os.system('transmission-remote -t all -S')
-	if (choice == 2):
-		torrentLink = input('Please enter the torrent link \n')
-		p2 = subprocess.call(["transmission-remote","-a",torrentLink])
-	print("Process started.")
-
-	if (choice == 3):
-		exit()
-		#os.chdir work solely in this program won't change the active directory in terminal.
-		#os.chdir("/mnt/backup/media/")
-		#os.system("pwd")
-
-	#p1 = subprocess.call(["transmiåssion-remote", "--auth", "transmission:transmission","-a", "{}".format(magnetLink)])
-	#p.kill()
-    #p2 = subprocess.Popen(["curl", "icanhazip.com"])
-
-def main():
-    print ("Transmission-Remote")
-    getLink()
+	if args.add:
+		#torrentLink = input('Please enter the torrent link \n')
+		p2 = subprocess.call(["transmission-remote","-a", args.add])
+	if args.remove:
+		os.system("transmission-remote -n 'transmission:transmission' -r")
 
 
+if __name__ == '__main__':
+	transmission()
 
-
-if  __name__ == "__main__":
-    main()
