@@ -10,7 +10,6 @@ import argparse
 #Pass the torrent link
 #wiLL run tranmssion on whatever host it is active on so will use this tool for lyr most likely
 
-#will this fucking update ???
 
 
 
