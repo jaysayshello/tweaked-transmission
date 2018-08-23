@@ -58,4 +58,5 @@ if __name__ == '__main__':
 #Create config file for all the directory shit, maybe make it a dictionary??? So wherever there is a directory it'll use that.
 #Also will have to make a config option people can use to setup there shit
 
-
+#to write the dictionary file (json) to a file to read from
+#https://stackoverflow.com/questions/36965507/writing-a-dictionary-to-a-text-file-in-python
