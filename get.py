@@ -5,9 +5,8 @@ import sys
 import os
 import argparse
 
-#Has to be done by Tuesdaaay
+
 #Options like where to save the torrent
-#Pass the torrent link
 #wiLL run tranmssion on whatever host it is active on so will use this tool for lyr most likely
 
 
@@ -18,9 +17,9 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument("-p", "--pause", default=0, help='Pauses all torrents')
 parser.add_argument("-a", "--add", help="Adds and starts the torrent")
-parser.add_argument("-r", "--remove", help="Remove all torrents")
+#parser.add_argument("-r", "--remove", help="Remove all torrents from list completed and incomplete")
 parser.add_argument("-t", "--time", help="Appends a cronjob of the command")
-parser.add_argument("-c", "--cancel", help="Clears all torrents in cron")
+parser.add_argument("-c", "--clear", help="Clears all torrents in cron")
 
 
 args = parser.parse_args()
@@ -30,12 +29,12 @@ def transmission():
 		os.system('transmission-remote -t all -S')
 	if args.add:
 		subprocess.call(["transmission-remote","-a", args.add])
-	if args.remove: #not working atm
-		os.system("transmission-remote -n 'transmission:transmission' -r")
+	#if args.remove: 
+		#os.system("transmission-remote --torrent all --stop")
 	if args.time:
 		with open ("/home/jay/crons/torrents.sh", "a") as myfile:
-			myfile.write('python3 /home/jay/python3/get.py -t {}\n'.format(args.time))
-	if args.cancel:
+			myfile.write('transmission-remote -a {}\n'.format(args.time))
+	if args.clear:
 		os.system("rm -r /home/jay/crons/torrents.sh")
 		f= open("/home/jay/crons/torrents.sh", "w+")
 
