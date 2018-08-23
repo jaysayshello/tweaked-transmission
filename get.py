@@ -20,6 +20,7 @@ parser.add_argument("-p", "--pause", default=0, help='Pauses all torrents')
 parser.add_argument("-a", "--add", help="Adds and starts the torrent")
 parser.add_argument("-r", "--remove", help="Remove all torrents")
 parser.add_argument("-t", "--time", help="Appends a cronjob of the command")
+parser.add_argument("-c", "--cancel", help="Clears all torrents in cron")
 
 
 args = parser.parse_args()
@@ -34,6 +35,9 @@ def transmission():
 	if args.time:
 		with open ("/home/jay/crons/torrents.sh", "a") as myfile:
 			myfile.write('python3 /home/jay/python3/get.py -t {}\n'.format(args.time))
+	if args.cancel:
+		os.system("rm -r /home/jay/crons/torrents.sh")
+		f= open("/home/jay/crons/torrents.sh", "w+")
 
 
 if __name__ == '__main__':
@@ -49,3 +53,10 @@ if __name__ == '__main__':
 #The torrent will start around 2 AM, brother should be offline by then.
 
 #Will have to stop the rsync cronjob on lord from running the option that checks and deletes files if it doesn't match what lord.
+
+
+#NEXT MOVE
+#Create config file for all the directory shit, maybe make it a dictionary??? So wherever there is a directory it'll use that.
+#Also will have to make a config option people can use to setup there shit
+
+
