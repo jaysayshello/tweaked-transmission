@@ -1,7 +1,6 @@
 # Tweaked-Transmission
 
-Eventually this will make using Transmission easier. The main thing of importance is allowing users to set a time in which to start a torrent using cronjobs within this tool.
-
+Eventually this will make using Transmission easier. The main thing of importance is allowing users to set a time in which to start a torrent using cronjobs within this tool. Essentially a better transmission-remote.
 
 # Current requriements
 cronjob
