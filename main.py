@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 
 
 
-parser.add_argument("-p", "--pause", default=0, help='Pauses all torrents')
+parser.add_argument("-p", "--pause", action="store_true", default=0, help='Pauses all torrents')
 parser.add_argument("-a", "--add", help="Adds and starts the torrent")
 parser.add_argument("-r", "--remove", help="Remove all torrents from list completed and incomplete")
 parser.add_argument("-t", "--time", help="Appends a cronjob of the command")
