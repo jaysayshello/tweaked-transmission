@@ -2,7 +2,7 @@
 
 Eventually this will make using Transmission easier. The main thing of importance is allowing users to set a time in which to start a torrent using cronjobs within this tool. Essentially a better transmission-remote.
 
-#Transmission Settings
+# Transmission Settings
 
 Please replace your current transmission settings with the the one provided in the repo, it'll save you from headaches.
 
