@@ -11,6 +11,8 @@ import cron
 
 parser = argparse.ArgumentParser()
 
+#Using acton="store_true" keyword allows the optional argument to pass with out added args.
+
 
 
 parser.add_argument("-p", "--pause", action="store_true", default=0, help='Pauses all torrents')
@@ -39,6 +41,16 @@ def transmission():
 
 	#if args.setup:
 		#some dictionary shit saved to a file in the same directory as the python script
+
+
+
+#this is actually useful, has to be redesigned but the idea is sound
+#		if args.time:		
+ #		with open ("/home/jay/crons/torrents.sh", "a") as myfile:		
+# 			myfile.write('transmission-remote -a {}\n'.format(args.time))		
+# 	if args.clear:		
+# 		os.system("rm -r /home/jay/crons/torrents.sh")		
+# 		f= open("/home/jay/crons/torrents.sh", "w+")
 
 
 if __name__ == '__main__':

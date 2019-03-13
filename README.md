@@ -24,7 +24,7 @@ lastly boot up Transmission again.
 
 
 # Current requriements
-cronjob
+python-crontab
 
 # Setup
 Must first create a cronjob via crontab -e, that points to a file named torrents.sh, the script will append to torrents.sh.
